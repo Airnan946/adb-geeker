@@ -1,0 +1,545 @@
+:root {
+  overflow: hidden;
+  font-family: Arial, "Microsoft YaHei";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* 全局变量 */
+  /* 背景色 */
+  --theme-bg-color: #e5e8ed;
+  /* 前景色 */
+  --theme-fg-color: #ffffff88;
+  /* 字体色 */
+  --theme-text-color: #444444;
+  /* 灰度字体色 */
+  --theme-text-gray-color: #999999;
+  /* 边框颜色 */
+  --theme-border-color: #00000007;
+  /* 边框圆角 */
+  --theme-border-radius: 10px;
+  /* 阴影颜色 */
+  --theme-shadow-color: #00000020;
+  /* 悬浮颜色 */
+  --theme-hover-color: #00000010;
+  /* 模糊背景颜色 */
+  --theme-blur-color: #00000010;
+  /* default按钮颜色 */
+  --theme-btn-default-color: #555555;
+  --theme-btn-default-disable-color: #33363999;
+  --theme-btn-default-bg-color: #2e333820;
+  --theme-btn-default-hover-bg-color: #2e333830;
+  --theme-btn-default-active-bg-color: #2e333821;
+  /* primary按钮颜色 */
+  --theme-btn-primary-color: #0052d9;
+  --theme-btn-primary-disable-color: #0052d999;
+  --theme-btn-primary-bg-color: #0052d929;
+  --theme-btn-primary-hover-bg-color: #0052d938;
+  --theme-btn-primary-active-bg-color: #0052d947;
+  /* info按钮颜色 */
+  --theme-btn-info-color: #2080f0;
+  --theme-btn-info-disable-color: #2080f099;
+  --theme-btn-info-bg-color: #2080f029;
+  --theme-btn-info-hover-bg-color: #2080f038;
+  --theme-btn-info-active-bg-color: #2080f047;
+  /* success按钮颜色 */
+  --theme-btn-success-color: #18a058;
+  --theme-btn-success-disable-color: #18a05899;
+  --theme-btn-success-bg-color: #18a05829;
+  --theme-btn-success-hover-bg-color: #18a05838;
+  --theme-btn-success-active-bg-color: #18a05847;
+  /* warning按钮颜色 */
+  --theme-btn-warning-color: #f0a020;
+  --theme-btn-warning-disable-color: #f0a02099;
+  --theme-btn-warning-bg-color: #f0a02029;
+  --theme-btn-warning-hover-bg-color: #f0a02038;
+  --theme-btn-warning-active-bg-color: #f0a02047;
+  /* error按钮颜色 */
+  --theme-btn-error-color: #d03050;
+  --theme-btn-error-disable-color: #d0305099;
+  --theme-btn-error-bg-color: #d0305029;
+  --theme-btn-error-hover-bg-color: #d0305038;
+  --theme-btn-error-active-bg-color: #d0305047;
+
+}
+
+/* 隐藏垂直滚动条 */
+::-webkit-scrollbar {
+  width: 5px;
+  /* 设置滚动条的宽度 */
+  background: transparent;
+  /* 设置滚动条背景为透明 */
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #0052d9;
+  /* 设置滚动条滑块颜色，这里是半透明的黑色 */
+  border-radius: 5px;
+  /* 设置滚动条滑块的圆角 */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* 设置滚动条轨道为透明 */
+}
+
+/* 滚动条轨道悬停时的样式 */
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+
+
+* {
+  font-size: 1em;
+  color: var(--theme-text-color);
+  /* box-shadow: #0052d9 0 0 0 1px; */
+}
+
+html,
+body,
+#app,
+#main {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  transition: background-color 0.25s;
+  background-color: var(--theme-bg-color);
+}
+
+/* 禁止选中 */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+/* 基础样式 */
+/* button 组件 */
+button {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 40px;
+  padding: 0px 16px;
+  border: none;
+  border-radius: var(--theme-border-radius);
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.25s;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.button-block {
+  width: 100%;
+}
+
+/* default */
+.button-default {
+  background-color: var(--theme-btn-default-bg-color);
+  color: var(--theme-btn-default-color);
+}
+
+.button-default:hover {
+  background-color: var(--theme-btn-default-hover-bg-color);
+}
+
+.button-default:active {
+  background-color: var(--theme-btn-default-active-bg-color);
+}
+
+.button-default:disabled {
+  background-color: var(--theme-btn-default-bg-color);
+  color: var(--theme-btn-default-disable-color);
+}
+
+/* primary */
+.button-primary {
+  background-color: var(--theme-btn-primary-bg-color);
+  color: var(--theme-btn-primary-color);
+}
+
+.button-primary:hover {
+  background-color: var(--theme-btn-primary-hover-bg-color);
+}
+
+.button-primary:active {
+  background-color: var(--theme-btn-primary-active-bg-color);
+}
+
+.button-primary:disabled {
+  background-color: var(--theme-btn-primary-bg-color);
+  color: var(--theme-btn-primary-disable-color);
+}
+
+/* info */
+.button-info {
+  background-color: var(--theme-btn-info-bg-color);
+  color: var(--theme-btn-info-color);
+}
+
+.button-info:hover {
+  background-color: var(--theme-btn-info-hover-bg-color);
+}
+
+.button-info:active {
+  background-color: var(--theme-btn-info-active-bg-color);
+}
+
+.button-info:disabled {
+  background-color: var(--theme-btn-info-bg-color);
+  color: var(--theme-btn-info-disable-color);
+}
+
+/* success */
+.button-success {
+  background-color: var(--theme-btn-success-bg-color);
+  color: var(--theme-btn-success-color);
+}
+
+.button-success:hover {
+  background-color: var(--theme-btn-success-hover-bg-color);
+}
+
+.button-success:active {
+  background-color: var(--theme-btn-success-active-bg-color);
+}
+
+.button-success:disabled {
+  background-color: var(--theme-btn-success-bg-color);
+  color: var(--theme-btn-success-disable-color);
+}
+
+/* warning */
+.button-warning {
+  background-color: var(--theme-btn-warning-bg-color);
+  color: var(--theme-btn-warning-color);
+}
+
+.button-warning:hover {
+  background-color: var(--theme-btn-warning-hover-bg-color);
+}
+
+.button-warning:active {
+  background-color: var(--theme-btn-warning-active-bg-color);
+}
+
+.button-warning:disabled {
+  background-color: var(--theme-btn-warning-bg-color);
+  color: var(--theme-btn-warning-disable-color);
+}
+
+/* error */
+.button-error {
+  background-color: var(--theme-btn-error-bg-color);
+  color: var(--theme-btn-error-color);
+}
+
+.button-error:hover {
+  background-color: var(--theme-btn-error-hover-bg-color);
+}
+
+.button-error:active {
+  background-color: var(--theme-btn-error-active-bg-color);
+}
+
+.button-error:disabled {
+  background-color: var(--theme-btn-error-bg-color);
+  color: var(--theme-btn-error-disable-color);
+}
+
+/* 输入框组件 */
+input,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+  background-color: var(--theme-bg-color);
+  border: 1px solid var(--theme-border-color);
+}
+
+textarea {
+  resize: none;
+  height: auto;
+  width: calc(100% - 10px);
+
+}
+
+input:hover,
+textarea:hover {
+  border-color: #58a6ff;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2080f0;
+}
+
+/* message组件 */
+.message-success,
+.message-info,
+.message-warning,
+.message-error {
+  width: max-content;
+  max-width: 400px;
+  min-height: 30px;
+  line-height: 30px;
+  padding: 5px 20px 5px 40px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -100px;
+  margin: auto;
+  background-color: var(--theme-blur-color);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  box-shadow: #00000040 0 0 20px;
+  user-select: none;
+  pointer-events: none;
+  text-align: left;
+  border-radius: 5px;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: all 0.2s;
+  z-index: 99999;
+}
+
+.message-success::before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="rgb(40, 167, 69)" /><path d="M25 50L40 65L75 30" fill="none" stroke="rgb(255, 255, 255)" stroke-width="10" /></svg>');
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 10px;
+  top: 10px;
+}
+
+.message-info::before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="rgb(23, 162, 184)" /><text x="50" y="74" font-size="64" fill="rgb(255, 255, 255)" text-anchor="middle">i</text></svg>');
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 10px;
+  top: 10px;
+}
+
+.message-warning::before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="rgb(255, 193, 7)" /><text x="50" y="74" font-size="70" fill="rgb(255, 255, 255)" text-anchor="middle">!</text></svg>');
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 10px;
+  top: 10px;
+}
+
+.message-error::before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="rgb(220, 53, 69)" /><path d="M30 30L70 70M30 70L70 30" fill="none" stroke="rgb(255, 255, 255)" stroke-width="10" /></svg>');
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 10px;
+  top: 10px;
+}
+
+/* notify组件 */
+.notify {
+  width: 300px;
+  min-height: 30px;
+  line-height: 30px;
+  padding: 10px 10px 5px 10px;
+  position: fixed;
+  right: -500px;
+  top: 10px;
+  background-color: var(--theme-blur-color);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  box-shadow: #00000040 0 0 15px;
+  text-align: left;
+  border-radius: 5px;
+  border-top: #0052d9 solid 3px;
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.2s;
+  z-index: 9999;
+}
+
+.notify button {
+  min-width: 30px;
+  display: inline-block;
+  padding: 5px 10px;
+  border: 0;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.notify button:hover {
+  background-color: #00000020;
+}
+
+.notify button:active {
+  background-color: #00000030;
+}
+
+.notify-title {
+  float: left;
+  width: calc(100% - 30px);
+  font-weight: bold;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.notify-content {
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.notify-bottom {
+  text-align: right;
+}
+
+.notify-close-btn {
+  display: block;
+  height: 30px;
+  background-size: contain;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="rgb(0, 84, 219)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>') no-repeat center center;
+}
+
+.notify-option-btn {
+  color: #0052d9;
+  font-size: 0.8em;
+}
+
+.notify-option-btn:hover {
+  background-color: #0052d929 !important;
+}
+
+.notify-option-btn:active {
+  background-color: #0052d947 !important;
+}
+
+/* APP 页面 */
+#main {
+  box-sizing: border-box;
+  display: flex;
+}
+
+#main .menu-box {
+  box-sizing: border-box;
+  width: 180px;
+  padding: 10px;
+}
+
+#main .menu-items {
+  text-align: center;
+}
+
+#main .menu-items .logo {
+  margin: 30px auto 0 auto;
+  width: 60px;
+  height: 60px;
+}
+
+#main .menu-items .logo-text {
+  display: inline-block;
+  margin: 10px auto 20px auto;
+  width: 100%;
+  text-align: center;
+  color: var(--theme-text-gray-color);
+}
+
+#main .menu-items button {
+  border: 0;
+  width: 100%;
+  height: 40px;
+  margin: 0 0 5px 0;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+#main .menu-items button:hover {
+  background-color: var(--theme-fg-color) !important;
+}
+
+#main .select-menu {
+  color: #0052d9;
+  background-color: var(--theme-fg-color) !important;
+  font-weight: bold;
+}
+
+
+#main .main-panel {
+  box-sizing: border-box;
+  flex: 1;
+  background-color: var(--theme-fg-color);
+}
+
+#main .main-panel-title {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--theme-text-color);
+}
+
+#main .main-panel-content {
+  box-sizing: border-box;
+  overflow: auto;
+  height: calc(100vh - 50px);
+  padding: 10px;
+}
+
+/* HOME 页面 */
+#home table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--theme-border-radius);
+  overflow: hidden;
+  border: var(--theme-border-color) solid 1px;
+  background-color: var(--theme-bg-color);
+}
+
+#home table tr,
+#home table thead td {
+  height: 40px;
+  transition: background-color 0.3s;
+}
+
+#home table td:first-child {
+  text-align: center;
+  width: 120px;
+}
+
+#home table td {
+  font-size: 1em;
+  border: 1px solid var(--theme-border-color);
+}
+
+#home table td:nth-child(2) {
+  padding-left: 10px;
+}
+
+#home table tr:hover {
+  background-color: var(--theme-hover-color);
+}

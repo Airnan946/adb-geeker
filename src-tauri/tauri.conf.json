@@ -1,0 +1,152 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "AdbGeeker",
+    "version": "0.0.1"
+  },
+  "tauri": {
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
+    "allowlist": {
+      "all": false,
+      "http": {
+        "request": true,
+        "scope": [
+          "http://**",
+          "https://**"
+        ]
+      },
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": true,
+        "message": true,
+        "open": false,
+        "save": false
+      },
+      "shell": {
+        "open": true,
+        "execute": true,
+        "sidecar": true,
+        "scope": [
+          {
+            "name": "bin/adb",
+            "args": true,
+            "sidecar": true
+          },
+          {
+            "name": "bin/fastboot",
+            "args": true,
+            "sidecar": true
+          }
+        ]
+      },
+      "window": {
+        "all": false,
+        "center": false,
+        "close": false,
+        "create": false,
+        "hide": false,
+        "maximize": false,
+        "minimize": false,
+        "print": false,
+        "requestUserAttention": false,
+        "setAlwaysOnTop": false,
+        "setClosable": false,
+        "setContentProtected": false,
+        "setCursorGrab": false,
+        "setCursorIcon": false,
+        "setCursorPosition": false,
+        "setCursorVisible": false,
+        "setDecorations": false,
+        "setFocus": false,
+        "setFullscreen": false,
+        "setIcon": false,
+        "setIgnoreCursorEvents": false,
+        "setMaxSize": false,
+        "setMaximizable": false,
+        "setMinSize": false,
+        "setMinimizable": true,
+        "setPosition": false,
+        "setResizable": false,
+        "setSize": false,
+        "setSkipTaskbar": false,
+        "setTitle": false,
+        "show": false,
+        "startDragging": true,
+        "unmaximize": false,
+        "unminimize": false
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": [
+        "deb",
+        "msi",
+        "dmg",
+        "updater"
+      ],
+      "identifier": "cn.airnan.tool.adb",
+      "publisher": "Airnan",
+      "externalBin": [
+        "bin/adb",
+        "bin/fastboot"
+      ],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "copyright": "airnan.cn",
+      "category": "Productivity",
+      "shortDescription": "AdbGeeker",
+      "longDescription": "AdbGeeker",
+      "windows": {
+        "webviewInstallMode": {
+          "silent": true,
+          "type": "downloadBootstrapper"
+        },
+        "wix": {
+          "language": "zh-CN"
+        },
+        "allowDowngrades": false
+      },
+      "macOS": {
+        "minimumSystemVersion": "10.15.7"
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "macOSPrivateApi": false,
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "AdbGeeker",
+        "label": "main",
+        "width": 1000,
+        "height": 700,
+        "minWidth": 1000,
+        "minHeight": 700,
+        "center": true,
+        "transparent": false,
+        "fileDropEnabled": false,
+        "decorations": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "acceptFirstMouse": false
+      }
+    ]
+  }
+}
